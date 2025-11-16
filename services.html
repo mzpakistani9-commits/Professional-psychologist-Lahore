@@ -3,127 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services - Muhammad Zubair</title>
+    <meta name="description" content="Professional psychology services including individual therapy, online counseling, CBT, relationship counseling, and web development for mental health platforms.">
+    <title>Services - Muhammad Zubair | Clinical Psychology & Web Development</title>
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Feather Icons -->
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    
     <style>
-        /* COMPLETE CSS FOR SERVICES PAGE */
-        :root {
-            --primary: #2C5282;
-            --primary-dark: #1A365D;
-            --accent: #ED8936;
-            --text: #2D3748;
-            --text-light: #4A5568;
-            --background: #F7FAFC;
-            --border: #E2E8F0;
-            --success: #48BB78;
-            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
-            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
-            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text);
-            background: var(--background);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        /* NAVIGATION */
-        .navbar {
-            background: white;
-            padding: 1rem 0;
-            box-shadow: var(--shadow-md);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .nav-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            text-decoration: none;
-            font-weight: 700;
-        }
-
-        .logo-primary {
-            background: var(--gradient);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 10px;
-            font-size: 1.5rem;
-        }
-
-        .logo-text {
-            color: var(--primary);
-            font-size: 1.2rem;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text);
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: var(--primary);
-        }
-
-        .btn-primary {
-            background: var(--primary);
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .btn-primary:hover {
-            background: var(--primary-dark);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            cursor: pointer;
-            color: var(--primary);
-        }
-
-        /* PAGE HERO */
+        /* PAGE-SPECIFIC STYLES ONLY */
         .page-hero {
             background: var(--gradient);
             color: white;
@@ -141,22 +31,7 @@
             opacity: 0.9;
         }
 
-        /* SECTION TITLE */
-        .section-title {
-            font-size: 2.5rem;
-            text-align: center;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: var(--text-light);
-            font-size: 1.1rem;
-            margin-bottom: 4rem;
-        }
-
-        /* SERVICE DETAIL CARDS */
+        /* Service Detail Cards */
         .services-detail-section {
             padding: 5rem 0;
             background: white;
@@ -242,7 +117,7 @@
             line-height: 1.7;
         }
 
-        /* SPECIALIZATION SECTION */
+        /* Specialization */
         .specialization-section {
             padding: 5rem 0;
             background: var(--background);
@@ -286,7 +161,7 @@
             line-height: 1.7;
         }
 
-        /* PROCESS SECTION */
+        /* Process Steps */
         .process-section {
             padding: 5rem 0;
             background: white;
@@ -333,134 +208,7 @@
             font-size: 0.95rem;
         }
 
-        /* PRICING SECTION */
-        .pricing-section {
-            padding: 5rem 0;
-            background: var(--background);
-        }
-
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-        }
-
-        .pricing-card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 20px;
-            box-shadow: var(--shadow-md);
-            transition: all 0.3s ease;
-            position: relative;
-            border: 2px solid transparent;
-        }
-
-        .pricing-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .pricing-card.featured {
-            border-color: var(--primary);
-            box-shadow: var(--shadow-lg);
-            transform: scale(1.05);
-        }
-
-        .pricing-card.featured:hover {
-            transform: scale(1.08) translateY(-10px);
-        }
-
-        .popular-badge {
-            position: absolute;
-            top: -15px;
-            right: 20px;
-            background: var(--accent);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-        }
-
-        .pricing-header {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .pricing-header i {
-            width: 50px;
-            height: 50px;
-            color: var(--primary);
-            margin: 0 auto 1rem;
-        }
-
-        .pricing-header h3 {
-            font-size: 1.5rem;
-            color: var(--primary);
-        }
-
-        .pricing-amount {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .currency {
-            font-size: 1.2rem;
-            color: var(--text-light);
-            vertical-align: super;
-        }
-
-        .price {
-            font-size: 3.5rem;
-            font-weight: 700;
-            color: var(--primary);
-        }
-
-        .duration {
-            font-size: 1rem;
-            color: var(--text-light);
-        }
-
-        .pricing-features {
-            list-style: none;
-            margin-bottom: 2rem;
-        }
-
-        .pricing-features li {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 1rem;
-            color: var(--text-light);
-        }
-
-        .pricing-features i {
-            width: 20px;
-            height: 20px;
-            color: var(--success);
-        }
-
-        .btn-outline {
-            background: white;
-            color: var(--primary);
-            padding: 0.75rem 1.5rem;
-            border: 2px solid var(--primary);
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-block;
-            text-align: center;
-            width: 100%;
-            transition: all 0.3s ease;
-        }
-
-        .btn-outline:hover {
-            background: var(--primary);
-            color: white;
-            transform: translateY(-2px);
-        }
-
-        /* CTA SECTION */
+        /* CTA Section */
         .cta-section {
             background: var(--gradient);
             color: white;
@@ -507,131 +255,9 @@
             transform: translateY(-2px);
         }
 
-        .btn-large {
-            padding: 1rem 2rem;
-            font-size: 1.1rem;
-        }
-
-        /* FOOTER */
-        .footer {
-            background: var(--primary);
-            color: white;
-            padding: 60px 0 20px;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-bottom: 3rem;
-        }
-
-        .footer-section h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .footer-section h4 {
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-        }
-
-        .footer-section p {
-            opacity: 0.9;
-            margin-bottom: 0.75rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section ul li {
-            margin-bottom: 0.75rem;
-        }
-
-        .footer-section ul li a {
-            color: white;
-            text-decoration: none;
-            opacity: 0.9;
-            transition: opacity 0.3s ease;
-        }
-
-        .footer-section ul li a:hover {
-            opacity: 1;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .social-links a {
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            transition: all 0.3s ease;
-        }
-
-        .social-links a:hover {
-            background: var(--accent);
-            transform: translateY(-3px);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            opacity: 0.8;
-        }
-
-        /* WHATSAPP FLOAT */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
-            background: #25D366;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            box-shadow: var(--shadow-lg);
-            z-index: 999;
-            transition: all 0.3s ease;
-            animation: pulse 2s infinite;
-        }
-
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
-            }
-            50% {
-                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
-            }
-        }
-
         /* RESPONSIVE */
-        @media (max-width: 767px) {
+        @media (max-width: 768px) {
             .page-title {
-                font-size: 2rem;
-            }
-
-            .section-title {
                 font-size: 2rem;
             }
 
@@ -653,45 +279,27 @@
                 grid-template-columns: 1fr;
             }
 
-            .nav-links {
-                position: fixed;
-                top: 70px;
-                left: 0;
-                right: 0;
-                background: white;
-                flex-direction: column;
-                padding: 2rem;
-                box-shadow: var(--shadow-lg);
-                display: none;
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .menu-toggle {
-                display: block;
-            }
-
             .cta-buttons {
                 flex-direction: column;
             }
         }
 
         @media (max-width: 480px) {
-            .logo-text {
-                display: none;
+            .service-detail-icon {
+                width: 80px;
+                height: 80px;
             }
 
-            .price {
-                font-size: 2.5rem;
+            .service-detail-icon i {
+                width: 50px;
+                height: 50px;
             }
         }
     </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar" role="navigation">
         <div class="container nav-content">
             <a href="index.html" class="logo">
                 <span class="logo-primary">MZ</span>
@@ -702,9 +310,9 @@
                 <a href="about.html">About Me</a>
                 <a href="services.html" class="active">Services</a>
                 <a href="contact.html">Contact</a>
-                <a href="https://calendly.com/mzpakistani8" class="btn-primary" target="_blank">Book Session</a>
+                <a href="https://calendly.com/mzpakistani9" class="btn-primary" target="_blank" rel="noopener noreferrer">Book Session</a>
             </div>
-            <button class="menu-toggle" onclick="toggleMenu()">
+            <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle menu">
                 <i data-feather="menu"></i>
             </button>
         </div>
@@ -721,9 +329,9 @@
     <!-- Main Services Detail -->
     <section class="services-detail-section">
         <div class="container">
-            <div class="service-detail-card">
+            <article class="service-detail-card">
                 <div class="service-detail-icon">
-                    <i data-feather="heart"></i>
+                    <i data-feather="heart" aria-hidden="true"></i>
                 </div>
                 <div class="service-detail-content">
                     <h2>Clinical Psychology Services</h2>
@@ -731,28 +339,28 @@
                     
                     <div class="service-features">
                         <div class="feature-item">
-                            <i data-feather="check-circle"></i>
+                            <i data-feather="check-circle" aria-hidden="true"></i>
                             <div>
                                 <h3>Individual Therapy</h3>
                                 <p>One-on-one sessions for anxiety, depression, stress management, and personal growth. Evidence-based approaches tailored to your unique needs.</p>
                             </div>
                         </div>
                         <div class="feature-item">
-                            <i data-feather="check-circle"></i>
+                            <i data-feather="check-circle" aria-hidden="true"></i>
                             <div>
                                 <h3>Relationship Counseling</h3>
                                 <p>Support for couples, family dynamics, and interpersonal relationships. Improve communication and strengthen connections.</p>
                             </div>
                         </div>
                         <div class="feature-item">
-                            <i data-feather="check-circle"></i>
+                            <i data-feather="check-circle" aria-hidden="true"></i>
                             <div>
                                 <h3>Child & Adolescent Therapy</h3>
                                 <p>Specialized care for behavioral, emotional, and learning challenges in young people. Creating safe spaces for growth and healing.</p>
                             </div>
                         </div>
                         <div class="feature-item">
-                            <i data-feather="check-circle"></i>
+                            <i data-feather="check-circle" aria-hidden="true"></i>
                             <div>
                                 <h3>Cognitive Behavioral Therapy (CBT)</h3>
                                 <p>Evidence-based approach to change negative thought patterns and behaviors. Practical strategies for lasting change.</p>
@@ -760,11 +368,11 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </article>
 
-            <div class="service-detail-card">
+            <article class="service-detail-card">
                 <div class="service-detail-icon">
-                    <i data-feather="video"></i>
+                    <i data-feather="video" aria-hidden="true"></i>
                 </div>
                 <div class="service-detail-content">
                     <h2>Online Counseling Sessions</h2>
@@ -772,28 +380,28 @@
                     
                     <div class="service-features">
                         <div class="feature-item">
-                            <i data-feather="check-circle"></i>
+                            <i data-feather="check-circle" aria-hidden="true"></i>
                             <div>
                                 <h3>Secure Video Sessions</h3>
                                 <p>Private, encrypted video calls ensuring complete confidentiality and professional standards.</p>
                             </div>
                         </div>
                         <div class="feature-item">
-                            <i data-feather="check-circle"></i>
+                            <i data-feather="check-circle" aria-hidden="true"></i>
                             <div>
                                 <h3>Flexible Scheduling</h3>
                                 <p>Book sessions that fit your timezone and busy schedule. Evening and weekend slots available.</p>
                             </div>
                         </div>
                         <div class="feature-item">
-                            <i data-feather="check-circle"></i>
+                            <i data-feather="check-circle" aria-hidden="true"></i>
                             <div>
                                 <h3>Multi-Language Support</h3>
                                 <p>Sessions available in English, Urdu, and Punjabi to ensure comfortable communication.</p>
                             </div>
                         </div>
                         <div class="feature-item">
-                            <i data-feather="check-circle"></i>
+                            <i data-feather="check-circle" aria-hidden="true"></i>
                             <div>
                                 <h3>Follow-up Resources</h3>
                                 <p>Worksheets, exercises, and materials to support your progress between sessions.</p>
@@ -801,11 +409,11 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </article>
 
-            <div class="service-detail-card">
+            <article class="service-detail-card">
                 <div class="service-detail-icon">
-                    <i data-feather="code"></i>
+                    <i data-feather="code" aria-hidden="true"></i>
                 </div>
                 <div class="service-detail-content">
                     <h2>Web Development Services</h2>
@@ -813,28 +421,28 @@
                     
                     <div class="service-features">
                         <div class="feature-item">
-                            <i data-feather="check-circle"></i>
+                            <i data-feather="check-circle" aria-hidden="true"></i>
                             <div>
                                 <h3>Mental Health Websites</h3>
                                 <p>Professional, user-friendly websites for therapists and counseling centers with modern design.</p>
                             </div>
                         </div>
                         <div class="feature-item">
-                            <i data-feather="check-circle"></i>
+                            <i data-feather="check-circle" aria-hidden="true"></i>
                             <div>
                                 <h3>Educational Platforms</h3>
                                 <p>Interactive websites for mental health education and awareness campaigns.</p>
                             </div>
                         </div>
                         <div class="feature-item">
-                            <i data-feather="check-circle"></i>
+                            <i data-feather="check-circle" aria-hidden="true"></i>
                             <div>
                                 <h3>Portfolio Websites</h3>
                                 <p>Modern, responsive portfolios for healthcare professionals to showcase their services.</p>
                             </div>
                         </div>
                         <div class="feature-item">
-                            <i data-feather="check-circle"></i>
+                            <i data-feather="check-circle" aria-hidden="true"></i>
                             <div>
                                 <h3>Custom Solutions</h3>
                                 <p>Tailored web solutions combining psychology expertise with cutting-edge technology.</p>
@@ -842,7 +450,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </article>
         </div>
     </section>
 
@@ -852,36 +460,36 @@
             <h2 class="section-title">Areas of Specialization</h2>
             <p class="section-subtitle">Expert support for a wide range of mental health concerns</p>
             <div class="specialization-grid">
-                <div class="spec-card">
-                    <i data-feather="cloud-rain"></i>
+                <article class="spec-card">
+                    <i data-feather="cloud-rain" aria-hidden="true"></i>
                     <h3>Anxiety & Depression</h3>
                     <p>Evidence-based treatment for anxiety disorders, panic attacks, and depression using CBT and other proven methods.</p>
-                </div>
-                <div class="spec-card">
-                    <i data-feather="users"></i>
+                </article>
+                <article class="spec-card">
+                    <i data-feather="users" aria-hidden="true"></i>
                     <h3>Relationship Issues</h3>
                     <p>Couples therapy, family counseling, and communication skills to strengthen relationships.</p>
-                </div>
-                <div class="spec-card">
-                    <i data-feather="trending-up"></i>
+                </article>
+                <article class="spec-card">
+                    <i data-feather="trending-up" aria-hidden="true"></i>
                     <h3>Stress Management</h3>
                     <p>Coping strategies for work stress, burnout, and life transitions with practical techniques.</p>
-                </div>
-                <div class="spec-card">
-                    <i data-feather="smile"></i>
+                </article>
+                <article class="spec-card">
+                    <i data-feather="smile" aria-hidden="true"></i>
                     <h3>Self-Esteem</h3>
                     <p>Building confidence, self-worth, and personal growth through supportive therapy.</p>
-                </div>
-                <div class="spec-card">
-                    <i data-feather="moon"></i>
+                </article>
+                <article class="spec-card">
+                    <i data-feather="moon" aria-hidden="true"></i>
                     <h3>Sleep Issues</h3>
                     <p>Treatment for insomnia and sleep-related problems affecting your daily life.</p>
-                </div>
-                <div class="spec-card">
-                    <i data-feather="compass"></i>
+                </article>
+                <article class="spec-card">
+                    <i data-feather="compass" aria-hidden="true"></i>
                     <h3>Life Transitions</h3>
                     <p>Support during major life changes, career shifts, and important decisions.</p>
-                </div>
+                </article>
             </div>
         </div>
     </section>
@@ -922,9 +530,9 @@
             <h2 class="section-title">Pricing Plans</h2>
             <p class="section-subtitle">Transparent, affordable pricing with no hidden fees</p>
             <div class="pricing-grid">
-                <div class="pricing-card">
+                <article class="pricing-card">
                     <div class="pricing-header">
-                        <i data-feather="globe"></i>
+                        <i data-feather="globe" aria-hidden="true"></i>
                         <h3>Gulf Countries</h3>
                     </div>
                     <div class="pricing-amount">
@@ -933,18 +541,18 @@
                         <span class="duration">/session</span>
                     </div>
                     <ul class="pricing-features">
-                        <li><i data-feather="check"></i> 60-minute session</li>
-                        <li><i data-feather="check"></i> Flexible scheduling</li>
-                        <li><i data-feather="check"></i> Multi-language support</li>
-                        <li><i data-feather="check"></i> Follow-up resources</li>
+                        <li><i data-feather="check" aria-hidden="true"></i> 60-minute session</li>
+                        <li><i data-feather="check" aria-hidden="true"></i> Flexible scheduling</li>
+                        <li><i data-feather="check" aria-hidden="true"></i> Multi-language support</li>
+                        <li><i data-feather="check" aria-hidden="true"></i> Follow-up resources</li>
                     </ul>
                     <a href="contact.html" class="btn-outline">Get Started</a>
-                </div>
+                </article>
 
-                <div class="pricing-card featured">
+                <article class="pricing-card featured">
                     <div class="popular-badge">Best Value</div>
                     <div class="pricing-header">
-                        <i data-feather="package"></i>
+                        <i data-feather="package" aria-hidden="true"></i>
                         <h3>Package Deal</h3>
                     </div>
                     <div class="pricing-amount">
@@ -953,31 +561,32 @@
                         <span class="duration">/10 sessions</span>
                     </div>
                     <ul class="pricing-features">
-                        <li><i data-feather="check"></i> Save 20% on bulk</li>
-                        <li><i data-feather="check"></i> Priority booking</li>
-                        <li><i data-feather="check"></i> Free resources</li>
-                        <li><i data-feather="check"></i> Progress tracking</li>
+                        <li><i data-feather="check" aria-hidden="true"></i> Save 20% on bulk</li>
+                        <li><i data-feather="check" aria-hidden="true"></i> Priority booking</li>
+                        <li><i data-feather="check" aria-hidden="true"></i> Free resources</li>
+                        <li><i data-feather="check" aria-hidden="true"></i> Progress tracking</li>
                     </ul>
                     <a href="contact.html" class="btn-primary">Get Started</a>
-                </div>
+                </article>
 
-                <div class="pricing-card">
+                <article class="pricing-card">
                     <div class="pricing-header">
-                        <i data-feather="dollar-sign"></i>
+                        <i data-feather="dollar-sign" aria-hidden="true"></i>
                         <h3>International</h3>
-                    </div class="pricing-amount">
+                    </div>
+                    <div class="pricing-amount">
                         <span class="currency">USD</span>
                         <span class="price">20</span>
                         <span class="duration">/session</span>
                     </div>
                     <ul class="pricing-features">
-                        <li><i data-feather="check"></i> Flexible currency</li>
-                        <li><i data-feather="check"></i> 24/7 availability</li>
-                        <li><i data-feather="check"></i> Secure payments</li>
-                        <li><i data-feather="check"></i> Confidential service</li>
+                        <li><i data-feather="check" aria-hidden="true"></i> Flexible currency</li>
+                        <li><i data-feather="check" aria-hidden="true"></i> 24/7 availability</li>
+                        <li><i data-feather="check" aria-hidden="true"></i> Secure payments</li>
+                        <li><i data-feather="check" aria-hidden="true"></i> Confidential service</li>
                     </ul>
                     <a href="contact.html" class="btn-outline">Get Started</a>
-                </div>
+                </article>
             </div>
         </div>
     </section>
@@ -989,8 +598,8 @@
             <p>Take the first step towards better mental health today</p>
             <div class="cta-buttons">
                 <a href="contact.html" class="btn-primary btn-large">Contact Me</a>
-                <a href="https://wa.me/923187036719" class="btn-outline-white btn-large" target="_blank">
-                    <i data-feather="message-circle"></i> WhatsApp
+                <a href="https://wa.me/923187036719" class="btn-outline-white btn-large" target="_blank" rel="noopener noreferrer">
+                    <i data-feather="message-circle" aria-hidden="true"></i> WhatsApp
                 </a>
             </div>
         </div>
@@ -1003,14 +612,14 @@
                 <h3>Muhammad Zubair</h3>
                 <p>Clinical Psychologist & Web Developer</p>
                 <div class="social-links">
-                    <a href="https://www.linkedin.com/in/%F0%9F%98%8A-muhammad-zubair-556444177/" target="_blank">
-                        <i data-feather="linkedin"></i>
+                    <a href="https://www.linkedin.com/in/%F0%9F%98%8A-muhammad-zubair-556444177/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                        <i data-feather="linkedin" aria-hidden="true"></i>
                     </a>
-                    <a href="https://www.facebook.com/psychologisthelp4648" target="_blank">
-                        <i data-feather="facebook"></i>
+                    <a href="https://www.facebook.com/psychologisthelp4648" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                        <i data-feather="facebook" aria-hidden="true"></i>
                     </a>
-                    <a href="https://wa.me/923187036719" target="_blank">
-                        <i data-feather="message-circle"></i>
+                    <a href="https://wa.me/923187036719" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                        <i data-feather="message-circle" aria-hidden="true"></i>
                     </a>
                 </div>
             </div>
@@ -1025,9 +634,9 @@
             </div>
             <div class="footer-section">
                 <h4>Contact</h4>
-                <p><i data-feather="phone"></i> +92 318 7036719</p>
-                <p><i data-feather="mail"></i> mzpakistani9@gmail.com</p>
-                <p><i data-feather="map-pin"></i> Lahore, Pakistan</p>
+                <p><i data-feather="phone" aria-hidden="true"></i> +92 318 7036719</p>
+                <p><i data-feather="mail" aria-hidden="true"></i> mzpakistani9@gmail.com</p>
+                <p><i data-feather="map-pin" aria-hidden="true"></i> Lahore, Pakistan</p>
             </div>
         </div>
         <div class="footer-bottom">
@@ -1036,27 +645,11 @@
     </footer>
 
     <!-- WhatsApp Float -->
-    <a href="https://wa.me/923187036719" class="whatsapp-float" target="_blank">
-        <i data-feather="message-circle"></i>
+    <a href="https://wa.me/923187036719" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Contact via WhatsApp">
+        <i data-feather="message-circle" aria-hidden="true"></i>
     </a>
 
-    <script>
-        feather.replace();
-
-        function toggleMenu() {
-            document.getElementById('navLinks').classList.toggle('active');
-        }
-
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                    document.getElementById('navLinks').classList.remove('active');
-                }
-            });
-        });
-    </script>
+    <!-- External JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>
