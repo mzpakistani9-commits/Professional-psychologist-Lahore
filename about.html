@@ -3,127 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me - Muhammad Zubair</title>
+    <meta name="description" content="About Muhammad Zubair - Clinical Psychologist with MS degree from Bahria University. 3+ years experience in therapy, counseling, and mental health services.">
+    <title>About Me - Muhammad Zubair | Clinical Psychologist</title>
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Feather Icons -->
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    
     <style>
-        /* COMPLETE CSS FOR ABOUT PAGE */
-        :root {
-            --primary: #2C5282;
-            --primary-dark: #1A365D;
-            --accent: #ED8936;
-            --text: #2D3748;
-            --text-light: #4A5568;
-            --background: #F7FAFC;
-            --border: #E2E8F0;
-            --success: #48BB78;
-            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
-            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
-            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text);
-            background: var(--background);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        /* NAVIGATION - Same as index */
-        .navbar {
-            background: white;
-            padding: 1rem 0;
-            box-shadow: var(--shadow-md);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .nav-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            text-decoration: none;
-            font-weight: 700;
-        }
-
-        .logo-primary {
-            background: var(--gradient);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 10px;
-            font-size: 1.5rem;
-        }
-
-        .logo-text {
-            color: var(--primary);
-            font-size: 1.2rem;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text);
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: var(--primary);
-        }
-
-        .btn-primary {
-            background: var(--primary);
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .btn-primary:hover {
-            background: var(--primary-dark);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            cursor: pointer;
-            color: var(--primary);
-        }
-
-        /* PAGE HERO */
+        /* PAGE-SPECIFIC STYLES ONLY */
         .page-hero {
             background: var(--gradient);
             color: white;
@@ -141,7 +31,7 @@
             opacity: 0.9;
         }
 
-        /* PROFILE SECTION */
+        /* Profile Section */
         .profile-section {
             padding: 5rem 0;
             background: white;
@@ -220,17 +110,10 @@
             color: var(--text-light);
         }
 
-        /* EDUCATION SECTION */
+        /* Education */
         .education-section {
             padding: 5rem 0;
             background: var(--background);
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            text-align: center;
-            color: var(--primary);
-            margin-bottom: 3rem;
         }
 
         .education-grid {
@@ -310,7 +193,7 @@
             border: 3px solid var(--primary);
         }
 
-        /* EXPERIENCE TIMELINE */
+        /* Experience Timeline */
         .experience-section {
             padding: 5rem 0;
             background: white;
@@ -380,7 +263,7 @@
             line-height: 1.6;
         }
 
-        /* SKILLS SECTION */
+        /* Skills */
         .skills-section {
             padding: 5rem 0;
             background: var(--background);
@@ -429,121 +312,12 @@
             border-bottom: none;
         }
 
-        /* FOOTER */
-        .footer {
-            background: var(--primary);
-            color: white;
-            padding: 60px 0 20px;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-bottom: 3rem;
-        }
-
-        .footer-section h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .footer-section h4 {
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-        }
-
-        .footer-section p {
-            opacity: 0.9;
-            margin-bottom: 0.75rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section ul li {
-            margin-bottom: 0.75rem;
-        }
-
-        .footer-section ul li a {
-            color: white;
-            text-decoration: none;
-            opacity: 0.9;
-            transition: opacity 0.3s ease;
-        }
-
-        .footer-section ul li a:hover {
-            opacity: 1;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .social-links a {
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            transition: all 0.3s ease;
-        }
-
-        .social-links a:hover {
-            background: var(--accent);
-            transform: translateY(-3px);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            opacity: 0.8;
-        }
-
-        /* WHATSAPP FLOAT */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
-            background: #25D366;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            box-shadow: var(--shadow-lg);
-            z-index: 999;
-            transition: all 0.3s ease;
-            animation: pulse 2s infinite;
-        }
-
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
-            }
-            50% {
-                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
-            }
-        }
-
         /* RESPONSIVE */
-        @media (max-width: 767px) {
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2rem;
+            }
+
             .profile-content {
                 grid-template-columns: 1fr;
             }
@@ -560,30 +334,6 @@
                 grid-template-columns: 1fr;
             }
 
-            .page-title {
-                font-size: 2rem;
-            }
-
-            .nav-links {
-                position: fixed;
-                top: 70px;
-                left: 0;
-                right: 0;
-                background: white;
-                flex-direction: column;
-                padding: 2rem;
-                box-shadow: var(--shadow-lg);
-                display: none;
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .menu-toggle {
-                display: block;
-            }
-
             .timeline {
                 padding-left: 40px;
             }
@@ -598,15 +348,16 @@
         }
 
         @media (max-width: 480px) {
-            .logo-text {
-                display: none;
+            .profile-main,
+            .profile-secondary {
+                height: 250px;
             }
         }
     </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar" role="navigation">
         <div class="container nav-content">
             <a href="index.html" class="logo">
                 <span class="logo-primary">MZ</span>
@@ -617,9 +368,9 @@
                 <a href="about.html" class="active">About Me</a>
                 <a href="services.html">Services</a>
                 <a href="contact.html">Contact</a>
-                <a href="https://calendly.com/mzpakistani8" class="btn-primary" target="_blank">Book Session</a>
+                <a href="https://calendly.com/mzpakistani9" class="btn-primary" target="_blank" rel="noopener noreferrer">Book Session</a>
             </div>
-            <button class="menu-toggle" onclick="toggleMenu()">
+            <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle menu">
                 <i data-feather="menu"></i>
             </button>
         </div>
@@ -637,9 +388,9 @@
     <section class="profile-section">
         <div class="container profile-content">
             <div class="profile-images">
-    <img src="profile_pic1.jpg" alt="Muhammad Zubair" class="profile-main">
-    <img src="profile_pic2.jpg" alt="Muhammad Zubair Professional" class="profile-secondary">
-</div>
+                <img src="profile_pic1.jpg" alt="Muhammad Zubair" class="profile-main">
+                <img src="profile_pic2.jpg" alt="Muhammad Zubair Professional" class="profile-secondary">
+            </div>
             <div class="profile-text">
                 <h2>Professional Summary</h2>
                 <p>I am a <strong>motivated and compassionate Clinical Psychologist</strong> with hands-on experience in psychometric testing, diagnosis, counseling, and therapy. I work with children, adolescents, and adults across hospital, school, and clinical settings.</p>
@@ -650,17 +401,17 @@
 
                 <div class="profile-stats">
                     <div class="stat-box">
-                        <i data-feather="award"></i>
+                        <i data-feather="award" aria-hidden="true"></i>
                         <h3>MS Clinical Psychology</h3>
                         <p>Bahria University</p>
                     </div>
                     <div class="stat-box">
-                        <i data-feather="briefcase"></i>
+                        <i data-feather="briefcase" aria-hidden="true"></i>
                         <h3>3+ Years</h3>
                         <p>Clinical Experience</p>
                     </div>
                     <div class="stat-box">
-                        <i data-feather="users"></i>
+                        <i data-feather="users" aria-hidden="true"></i>
                         <h3>500+</h3>
                         <p>Clients Helped</p>
                     </div>
@@ -674,35 +425,35 @@
         <div class="container">
             <h2 class="section-title">Education & Certifications</h2>
             <div class="education-grid">
-                <div class="education-card">
+                <article class="education-card">
                     <div class="education-icon">
-                        <i data-feather="graduation-cap"></i>
+                        <i data-feather="graduation-cap" aria-hidden="true"></i>
                     </div>
                     <h3>MS Clinical Psychology</h3>
                     <p class="institution">Bahria University, Lahore</p>
                     <p class="duration">October 2022 – October 2024</p>
                     <p>Master of Science in Clinical Psychology with focus on evidence-based therapeutic interventions</p>
-                </div>
+                </article>
 
-                <div class="education-card">
+                <article class="education-card">
                     <div class="education-icon">
-                        <i data-feather="book"></i>
+                        <i data-feather="book" aria-hidden="true"></i>
                     </div>
                     <h3>M.Sc. Applied Psychology</h3>
                     <p class="institution">Government University of Faisalabad</p>
                     <p class="duration">January 2018 – May 2020</p>
                     <p>Postgraduate degree in Applied Psychology with clinical training</p>
-                </div>
+                </article>
 
-                <div class="education-card">
+                <article class="education-card">
                     <div class="education-icon">
-                        <i data-feather="file-text"></i>
+                        <i data-feather="file-text" aria-hidden="true"></i>
                     </div>
                     <h3>Associate Degree</h3>
                     <p class="institution">Government University of Faisalabad</p>
                     <p class="duration">January 2016 – January 2018</p>
                     <p>Associate of Applied Science in Psychology</p>
-                </div>
+                </article>
             </div>
 
             <!-- Degree Image -->
@@ -718,7 +469,7 @@
         <div class="container">
             <h2 class="section-title">Professional Experience</h2>
             <div class="timeline">
-                <div class="timeline-item">
+                <article class="timeline-item">
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
                         <h3>Therapist</h3>
@@ -730,9 +481,9 @@
                             <li>Deliver psychoeducation workshops for staff and parents</li>
                         </ul>
                     </div>
-                </div>
+                </article>
 
-                <div class="timeline-item">
+                <article class="timeline-item">
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
                         <h3>Clinical Psychology Intern</h3>
@@ -743,9 +494,9 @@
                             <li>Gained experience in clinical report writing and diagnosis</li>
                         </ul>
                     </div>
-                </div>
+                </article>
 
-                <div class="timeline-item">
+                <article class="timeline-item">
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
                         <h3>Psychology Intern</h3>
@@ -755,7 +506,7 @@
                             <li>Gained hands-on experience in psychiatric rehabilitation</li>
                         </ul>
                     </div>
-                </div>
+                </article>
             </div>
         </div>
     </section>
@@ -766,7 +517,7 @@
             <h2 class="section-title">Skills & Expertise</h2>
             <div class="skills-grid">
                 <div class="skill-category">
-                    <h3><i data-feather="heart"></i> Clinical Psychology</h3>
+                    <h3><i data-feather="heart" aria-hidden="true"></i> Clinical Psychology</h3>
                     <ul>
                         <li>Clinical Report Writing & Documentation</li>
                         <li>Counseling & Psychotherapy (CBT, Client-Centered)</li>
@@ -778,7 +529,7 @@
                 </div>
 
                 <div class="skill-category">
-                    <h3><i data-feather="code"></i> Technology</h3>
+                    <h3><i data-feather="code" aria-hidden="true"></i> Technology</h3>
                     <ul>
                         <li>HTML & CSS (Web Development)</li>
                         <li>Visual Studio Code & Development Tools</li>
@@ -799,14 +550,14 @@
                 <h3>Muhammad Zubair</h3>
                 <p>Clinical Psychologist & Web Developer</p>
                 <div class="social-links">
-                    <a href="https://www.linkedin.com/in/%F0%9F%98%8A-muhammad-zubair-556444177/" target="_blank">
-                        <i data-feather="linkedin"></i>
+                    <a href="https://www.youtube.com/@psychologistmuhammadzubair4295" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+    <i data-feather="youtube" aria-hidden="true"></i>
+</a>
+                    <a href="https://www.facebook.com/psychologisthelp4648" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                        <i data-feather="facebook" aria-hidden="true"></i>
                     </a>
-                    <a href="https://www.facebook.com/psychologisthelp4648" target="_blank">
-                        <i data-feather="facebook"></i>
-                    </a>
-                    <a href="https://wa.me/923187036719" target="_blank">
-                        <i data-feather="message-circle"></i>
+                    <a href="https://wa.me/923187036719" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                        <i data-feather="message-circle" aria-hidden="true"></i>
                     </a>
                 </div>
             </div>
@@ -821,9 +572,9 @@
             </div>
             <div class="footer-section">
                 <h4>Contact</h4>
-                <p><i data-feather="phone"></i> +92 318 7036719</p>
-                <p><i data-feather="mail"></i> mzpakistani9@gmail.com</p>
-                <p><i data-feather="map-pin"></i> Lahore, Pakistan</p>
+                <p><i data-feather="phone" aria-hidden="true"></i> +92 318 7036719</p>
+                <p><i data-feather="mail" aria-hidden="true"></i> mzpakistani9@gmail.com</p>
+                <p><i data-feather="map-pin" aria-hidden="true"></i> Lahore, Pakistan</p>
             </div>
         </div>
         <div class="footer-bottom">
@@ -832,27 +583,11 @@
     </footer>
 
     <!-- WhatsApp Float -->
-    <a href="https://wa.me/923187036719" class="whatsapp-float" target="_blank">
-        <i data-feather="message-circle"></i>
+    <a href="https://wa.me/923187036719" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Contact via WhatsApp">
+        <i data-feather="message-circle" aria-hidden="true"></i>
     </a>
 
-    <script>
-        feather.replace();
-
-        function toggleMenu() {
-            document.getElementById('navLinks').classList.toggle('active');
-        }
-
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                    document.getElementById('navLinks').classList.remove('active');
-                }
-            });
-        });
-    </script>
+    <!-- External JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>
