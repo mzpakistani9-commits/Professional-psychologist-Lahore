@@ -1,29 +1,32 @@
-# HOW TO RUN DAILY SEO WITH OPENCODE
+# DAILY SEO - FULLY AUTOMATIC ✅
 
-## Every day when you open your laptop:
+## What's Set Up:
+- Daily cron job runs at **12:00 PM** every day
+- Creates a new SEO blog post automatically
+- Updates sitemap.xml
+- Pushes to GitHub
+- Saves social media posts to `social-posts/today.txt`
 
-Open terminal and run:
+## Your ONLY Job Every Day:
 ```
-cd ~/Professional-psychologist-Lahore
-opencode
+xdg-open ~/Professional-psychologist-Lahore/social-posts/today.txt
+```
+Then copy-paste:
+1. Facebook post → Facebook
+2. LinkedIn post → LinkedIn
+3. WhatsApp status → WhatsApp
+4. Reply to client messages on WhatsApp
+
+## Manual Run (anytime):
+```bash
+seo
+```
+Or:
+```bash
+cd ~/Professional-psychologist-Lahore && bash daily-seo.sh
 ```
 
-Then paste this message to OpenCode:
-
+## To Check What Was Done Today:
+```bash
+cat ~/Desktop/daily-seo-log.txt
 ```
-Today's date: $(date +"%Y-%m-%d")
-
-Run my daily SEO routine:
-1. Check if I already did SEO today by looking at social-posts/tracker.md
-2. If not done yet, create a new blog post for my psychology site targeting a keyword I will suggest
-3. Generate today's social media posts (Facebook, LinkedIn, WhatsApp) in social-posts/today.txt
-4. Update the sitemap.xml to include any new pages
-5. Commit and push all changes to GitHub
-6. Update social-posts/tracker.md to mark today as done
-
-Ask me what keyword to target for today's blog post first.
-```
-
-That's it. OpenCode will handle everything and ask you for a keyword.
-
-## In 30 seconds, your daily SEO is done.

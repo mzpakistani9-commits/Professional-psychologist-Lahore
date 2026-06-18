@@ -1,96 +1,206 @@
 #!/bin/bash
 # =============================================
-# DAILY SEO AUTOMATION - One command does it all
+# DAILY SEO - FULLY AUTOMATIC
 # Run: bash daily-seo.sh
+# You only need to: copy-paste social posts
 # =============================================
 
+cd /home/zubair/Professional-psychologist-Lahore
+
 DATE=$(date +"%Y-%m-%d")
-POST_LOG="social-posts/posted.txt"
-BLOG_DIR="blog"
+KEYWORDS_FILE="social-posts/keywords.txt"
+CONTENT_DB="social-posts/content-db.txt"
+TRACKER="social-posts/tracker.md"
+COUNTER_FILE="social-posts/.counter"
+
+# Get current keyword index
+if [ ! -f "$COUNTER_FILE" ]; then
+    echo 0 > "$COUNTER_FILE"
+fi
+INDEX=$(cat "$COUNTER_FILE")
+TOTAL=$(wc -l < "$KEYWORDS_FILE")
+
+# Get today's keyword
+INDEX=$(( (INDEX + 1) % TOTAL ))
+echo $INDEX > "$COUNTER_FILE"
+
+KEYWORD=$(sed -n "$((INDEX + 1))p" "$KEYWORDS_FILE")
+SLUG=$(echo "$KEYWORD" | tr ' ' '-' | tr '[:upper:]' '[:lower:]')
+FILENAME="$SLUG.html"
 
 echo "========================================"
-echo "  DAILY SEO - $DATE"
+echo "  AUTOMATIC DAILY SEO - $DATE"
+echo "  Keyword: $KEYWORD"
 echo "========================================"
 
-# Step 1: Open OpenCode to create a new blog post
-echo ""
-echo "[1/4] Creating SEO blog post with OpenCode..."
-echo "OpenCode will ask what keyword you want to target."
-echo "Type a keyword like: 'relationship counseling in Lahore'"
-echo ""
+# Extract content for this keyword from content DB
+extract_field() {
+    local field="$1"
+    local result=$(awk -v kw="KEYWORD" -v fld="$field" '
+        /^---KEYWORD---$/ { kw_found = 0 }
+        /^---KEYWORD---$/ && !found { kw_found = 1; keyword_line = NR }
+        kw_found && /^---KEYWORD---$/ && !found { kw_found = 0 }
+        kw_found && !found && index($0, fld "=") == 1 {
+            val = substr($0, length(fld) + 2)
+            print val
+        }
+    ' "$CONTENT_DB" | head -1)
+    
+    if [ -z "$result" ]; then
+        echo ""
+    else
+        echo "$result"
+    fi
+}
 
-# Run OpenCode with a prompt
-opencode << 'EOF'
-I am running my daily SEO task. Create one new blog post for my psychology website at /home/zubair/Professional-psychologist-Lahore.
-Target a keyword I will tell you. 
-The post must:
-- Have proper HTML structure with the same style as my site
-- Include a JSON-LD Article schema
-- Include WhatsApp CTA and Calendly booking links
-- Have internal links to services.html
-- Be saved in the blog/ folder
-- Add the post to sitemap.xml
+HEADLINE=$(extract_field "headline")
+SUBTITLE=$(extract_field "subtitle")
+INTRO=$(extract_field "intro")
+H2_1=$(extract_field "h2_1")
+P2=$(extract_field "p2")
+H2_2=$(extract_field "h2_2")
+H3_1=$(extract_field "h3_1")
+P4=$(extract_field "p4")
+H3_2=$(extract_field "h3_2")
+P5=$(extract_field "p5")
+H2_3=$(extract_field "h2_3")
+LI_1=$(extract_field "li_1")
+LI_2=$(extract_field "li_2")
+LI_3=$(extract_field "li_3")
+LI_4=$(extract_field "li_4")
+LI_5=$(extract_field "li_5")
+H2_4=$(extract_field "h2_4")
+P6=$(extract_field "p6")
 
-Ask me what keyword to target, then create the post.
-EOF
+# Use defaults if empty
+[ -z "$HEADLINE" ] && HEADLINE="Mental Health Support: $KEYWORD"
+[ -z "$SUBTITLE" ] && SUBTITLE="Professional help from a qualified clinical psychologist"
+[ -z "$INTRO" ] && INTRO="Taking care of your mental health is one of the most important things you can do. If you're searching for '$KEYWORD', you're in the right place."
+[ -z "$H2_1" ] && H2_1="Why This Matters"
+[ -z "$P2" ] && P2="Mental health affects every aspect of your life. Getting the right support can make a significant difference in how you feel and function."
+[ -z "$H2_2" ] && H2_2="How I Can Help"
+[ -z "$H3_1" ] && H3_1="Professional Support"
+[ -z "$P4" ] && P4="As a qualified clinical psychologist with 3+ years of experience, I provide evidence-based therapy tailored to your needs."
+[ -z "$H3_2" ] && H3_2="Convenient Online Sessions"
+[ -z "$P5" ] && P5="Sessions are conducted via secure video call. No travel needed, flexible scheduling available."
+[ -z "$H2_3" ] && H2_3="Key Benefits"
+[ -z "$LI_1" ] && LI_1="Qualified clinical psychologist with MS degree"
+[ -z "$LI_2" ] && LI_2="Evidence-based therapeutic approaches"
+[ -z "$LI_3" ] && LI_3="Flexible scheduling including evenings"
+[ -z "$LI_4" ] && LI_4="Multi-language support (English, Urdu, Punjabi)"
+[ -z "$LI_5" ] && LI_5="Affordable rates with package options"
+[ -z "$H2_4" ] && H2_4="Get Started Today"
+[ -z "$P6" ] && P6="Ready to take the first step? Book a free 15-minute consultation to discuss your needs."
 
-echo ""
-echo "[2/4] Blog post created (if you completed the step above)"
+TOPIC=$(echo "$KEYWORD" | sed 's/.*/\u&/')
+META_DESC="$(echo "$HEADLINE" | sed 's/://g'). Professional online therapy and counseling from a qualified clinical psychologist. Book your session today."
+OG_TITLE="$HEADLINE | Muhammad Zubair"
+TITLE="$HEADLINE | Muhammad Zubair"
 
-# Step 2: Generate social media posts for today
-echo ""
-echo "[3/4] Generating today's social media post..."
-echo ""
+# Generate blog post
+echo "[1/4] Creating blog post..."
+sed -e "s/__FILENAME__/$FILENAME/g" \
+    -e "s/__DATE__/$DATE/g" \
+    -e "s/__TOPIC__/$TOPIC/g" \
+    -e "s/__HEADLINE__/$HEADLINE/g" \
+    -e "s/__SUBTITLE__/$SUBTITLE/g" \
+    -e "s/__META_DESC__/$META_DESC/g" \
+    -e "s/__OG_TITLE__/$OG_TITLE/g" \
+    -e "s/__TITLE__/$TITLE/g" \
+    -e "s/__INTRO_P1__/$INTRO/g" \
+    -e "s/__H2_1__/$H2_1/g" \
+    -e "s/__P2__/$P2/g" \
+    -e "s/__H2_2__/$H2_2/g" \
+    -e "s/__P3__/$P2/g" \
+    -e "s/__H3_1__/$H3_1/g" \
+    -e "s/__P4__/$P4/g" \
+    -e "s/__H3_2__/$H3_2/g" \
+    -e "s/__P5__/$P5/g" \
+    -e "s/__H2_3__/$H2_3/g" \
+    -e "s/__LI_1__/$LI_1/g" \
+    -e "s/__LI_2__/$LI_2/g" \
+    -e "s/__LI_3__/$LI_3/g" \
+    -e "s/__LI_4__/$LI_4/g" \
+    -e "s/__LI_5__/$LI_5/g" \
+    -e "s/__H2_4__/$H2_4/g" \
+    -e "s/__P6__/$P6/g" \
+    social-posts/blog-template.html > "blog/$FILENAME"
 
+echo "  Created: blog/$FILENAME"
+
+# Step 2: Update sitemap
+echo "[2/4] Updating sitemap..."
+SITEMAP="sitemap.xml"
+BLOG_URL="https://mzpakistani9-commits.github.io/Professional-psychologist-Lahore/blog/$FILENAME"
+NEW_ENTRY="  <url>\n    <loc>$BLOG_URL</loc>\n    <lastmod>$DATE</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.6</priority>\n  </url>"
+
+# Insert before closing </urlset>
+sed -i "/<\/urlset>/i\\  <url>\n    <loc>$BLOG_URL</loc>\n    <lastmod>$DATE</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.6</priority>\n  </url>" "$SITEMAP"
+
+echo "  Sitemap updated"
+
+# Step 3: Generate social posts
+echo "[3/4] Generating social media posts..."
 POSTS_FILE="social-posts/today.txt"
+
 cat > "$POSTS_FILE" << EOP
 ========================================
-SOCIAL MEDIA POST - $DATE
+SOCIAL MEDIA POSTS - $DATE
+Target Keyword: $KEYWORD
 ========================================
 
 [FACEBOOK POST]:
-Need someone to talk to? I offer online therapy for anxiety,
-depression, and relationship issues — in Urdu, English, and Punjabi.
-Free 15-min consultation: https://wa.me/923187036719
-#MentalHealthPakistan #OnlineTherapy #Lahore
+$HEADLINE
+
+$INTRO
+
+I offer professional online therapy sessions — convenient, affordable, and confidential.
+Free 15-minute consultation: https://wa.me/923187036719
+
+#MentalHealthPakistan #Therapy #Lahore #Psychology
 
 [LINKEDIN POST]:
-As a Clinical Psychologist, I've seen how online therapy transforms
-lives. If you or someone you know is struggling, reaching out is
-the first step. Free consultation: https://calendly.com/mzpakistani9
+$HEADLINE
+
+$SUBTITLE
+
+Book a free consultation: https://calendly.com/mzpakistani9
 
 [WHATSAPP STATUS]:
-Online therapy available today. Book your free consultation:
-https://wa.me/923187036719
+Need support with "$KEYWORD"? I'm available for online therapy.
+Free consultation: https://wa.me/923187036719
+
+[BLOG POST LINK]:
+https://mzpakistani9-commits.github.io/Professional-psychologist-Lahore/blog/$FILENAME
 
 ========================================
-After posting, run: bash daily-seo.sh --done
+YOUR JOB: Copy-paste these to Facebook & LinkedIn
 ========================================
 EOP
 
-echo "  Today's posts saved to: $POSTS_FILE"
-echo "  Open it and copy-paste to Facebook, LinkedIn, WhatsApp"
-echo ""
+echo "  Posts saved to: $POSTS_FILE"
 
-# Step 3: Push to GitHub
-echo "[4/4] Pushing changes to GitHub..."
+# Step 4: Push to GitHub
+echo "[4/4] Pushing to GitHub..."
 git add -A
-git commit -m "Daily SEO update - $DATE"
+git commit -m "Daily SEO: $KEYWORD - $DATE"
 git push
 
+# Update tracker
 echo ""
-echo "========================================"
-echo "  DONE! Tasks completed for $DATE"
-echo "========================================"
-echo ""
-echo "What to do now:"
-echo "  1. Open: xdg-open social-posts/today.txt"
-echo "  2. Copy-paste posts to Facebook & LinkedIn"
-echo "  3. Reply to WhatsApp messages if any"
-echo "  4. Check Google Search Console for traffic"
+echo "---" >> "$TRACKER"
+echo "| $DATE | $KEYWORD | Posted: ___ |" >> "$TRACKER"
 
-# If --done flag, log today as completed
-if [ "$1" = "--done" ]; then
-    echo "$DATE - POSTED" >> "$POST_LOG"
-    echo "  Logged as completed"
-fi
+echo ""
+echo "========================================"
+echo "  DONE! ✅"
+echo "========================================"
+echo ""
+echo "YOUR ONLY JOB:"
+echo "  1. Run: xdg-open social-posts/today.txt"
+echo "  2. Copy FACEBOOK post → Facebook"
+echo "  3. Copy LINKEDIN post → LinkedIn"
+echo "  4. Copy WHATSAPP status → WhatsApp"
+echo "  5. Check WhatsApp for client messages"
+echo ""
+echo "That's it. Everything else is automated."
