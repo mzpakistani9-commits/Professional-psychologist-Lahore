@@ -44,3 +44,7 @@
 | 2026-06-20 | PTSD treatment online Pakistan | Posted: ___ |
 ---
 | 2026-06-20 | OCD therapy online Lahore | Posted: ___ |
+---
+| 2026-06-20 | anger management counseling Pakistan | Posted: ___ |
+---
+| 2026-06-20 | grief counseling online Pakistan | Posted: ___ |
