@@ -36,15 +36,18 @@ echo "========================================"
 # Extract content for this keyword from content DB
 extract_field() {
     local field="$1"
-    local result=$(awk -v kw="KEYWORD" -v fld="$field" '
-        /^---KEYWORD---$/ { kw_found = 0 }
-        /^---KEYWORD---$/ && !found { kw_found = 1; keyword_line = NR }
-        kw_found && /^---KEYWORD---$/ && !found { kw_found = 0 }
-        kw_found && !found && index($0, fld "=") == 1 {
-            val = substr($0, length(fld) + 2)
-            print val
+    local result=$(awk -v keyword="$KEYWORD" -v fld="$field" '
+        BEGIN { in_section = 0 }
+        {
+            if (index($0, "---KEYWORD---") == 1) { in_section = 0 }
+            if (in_section && index($0, fld "=") == 1) {
+                val = substr($0, length(fld) + 2)
+                print val
+                exit
+            }
+            if ($0 == keyword) { in_section = 1 }
         }
-    ' "$CONTENT_DB" | head -1)
+    ' "$CONTENT_DB")
     
     if [ -z "$result" ]; then
         echo ""
