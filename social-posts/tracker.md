@@ -58,3 +58,5 @@
 | 2026-06-20 | mental health awareness Pakistan | Posted: ___ |
 ---
 | 2026-06-20 | affordable counseling services Pakistan | Posted: ___ |
+---
+| 2026-06-20 | best psychologist for anxiety Lahore | Posted: ___ |
