@@ -66,3 +66,5 @@
 | 2026-06-20 | marriage counseling online Pakistan | Posted: ___ |
 ---
 | 2026-06-20 | child psychologist Lahore online | Posted: ___ |
+---
+| 2026-06-20 | stress management tips Pakistan | Posted: ___ |
