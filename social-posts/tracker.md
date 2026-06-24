@@ -76,3 +76,5 @@
 | 2026-06-20 | online therapist in Lahore Pakistan | Posted: ___ |
 ---
 | 2026-06-21 | affordable counseling services Pakistan | Posted: ___ |
+---
+| 2026-06-23 | best psychologist for anxiety Lahore | Posted: ___ |
